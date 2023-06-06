@@ -37,6 +37,10 @@ interface ErrorResponse {
 }
 instance.interceptors.response.use(
   (response) => {
+    if (response.status !== 200) {
+      console.error(`[INTERCEPTOR] Description: ${response.status}`);
+    }
+    console.log(response);
     return response;
   },
   (error: AxiosError) => {

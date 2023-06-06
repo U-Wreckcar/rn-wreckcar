@@ -1,7 +1,7 @@
 // --** UTM **--
 
 /**
- * GET UTMS
+ * UTMS
  */
 export const GET_UTMS_API = 'utms';
 export const POST_UTMS_API = 'utms';

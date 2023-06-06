@@ -1,7 +1,18 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { INoti, IProfile } from '../icon/Icon';
+import { GET_USER } from '@/services/async/user';
+
 export default function BaseHead() {
+  const [userData, setResponse] = useState<UserData>();
+  const getUserHandle = async () => {
+    const response = await GET_USER();
+    const data = response.data.data;
+    setResponse(data);
+  };
+  useEffect(() => {
+    getUserHandle();
+  }, []);
   return (
     <div
       className="
@@ -16,7 +27,7 @@ export default function BaseHead() {
       </div>
       <div className="mr-6 flex shrink-0 items-center gap-2 ">
         <IProfile />
-        <div>유렉카 님</div>
+        <div>{userData?.name} 님</div>
       </div>
     </div>
   );

@@ -8,7 +8,11 @@ interface PropsType {
 
 const ATag: React.FC<PropsType> = ({ children, href, isBlank }) => {
   return (
-    <Link href={`${href}`} target={isBlank ? '_blank' : ''}>
+    <Link
+      href={`${href}`}
+      target={isBlank ? '_blank' : 'none'}
+      as="/management"
+    >
       {children}
     </Link>
   );
