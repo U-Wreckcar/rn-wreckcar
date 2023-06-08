@@ -1,4 +1,4 @@
-import { FindPW } from '@/components/forgetpassword/FindPW';
+import { FindPW } from '../../../components/forgetpassword/FindPW';
 import React from 'react';
 
 const FindPage = () => {

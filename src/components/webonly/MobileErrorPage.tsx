@@ -1,7 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import styles from "./mobile.module.css";
-import msgImg from "public/assets/img/m_web.png";
+'use client';
+import React from 'react';
+import Image from 'next/image';
+import styles from './mobile.module.css';
+import msgImg from 'public/assets/img/m_web.png';
 export default function MobileErrorPage() {
   return (
     <div className={styles.error_container}>

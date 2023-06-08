@@ -1,4 +1,4 @@
-import HomeLayout from '@/components/render/HomeLayout';
+import HomeLayout from '../components/render/HomeLayout';
 import React from 'react';
 
 export default function Home() {

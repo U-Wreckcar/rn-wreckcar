@@ -4,11 +4,8 @@ import styles from './CreateCopyBox.module.css';
 import b_link from '../../../public/assets/img/b_link.png';
 import Image from 'next/image';
 import { CreateCopyButton } from './CreateCopyButton';
-
-type PropsType = {
-  resUTM: any;
-};
-export const CreateCopyBox: React.FC<PropsType> = ({ resUTM }) => {
+import { PostUTMtype } from './CreatePage';
+export const CreateCopyBox = ({ utmData }: { utmData: PostUTMtype[] }) => {
   return (
     <div className={styles.container_copy_box}>
       <div className={styles.copy_title}>
@@ -23,14 +20,14 @@ export const CreateCopyBox: React.FC<PropsType> = ({ resUTM }) => {
       </div>
       <div>
         <div className={styles.list_container}>
-          {resUTM?.map((i: any, idx: number) => (
-            <div key={i.utm_id}>
+          {utmData?.map((i: any, idx: number) => (
+            <div key={idx}>
               <div className={styles.list_box}>
                 <div className={styles.copy_box_number}>{idx + 1}</div>
                 <div className={styles.full_box}>
                   <div className={styles.copy_box_full}>
                     <div className={styles.full_utm}>
-                      <div className={styles.text_full}>{i.full_url}</div>
+                      <div className={styles.text_full}>{i.fullUrl}</div>
                     </div>
                     <CreateCopyButton text={i.full_url} />
                   </div>
@@ -38,7 +35,7 @@ export const CreateCopyBox: React.FC<PropsType> = ({ resUTM }) => {
                 <div className={styles.short_box}>
                   <div className={styles.copy_box_short}>
                     <div className={styles.short_utm}>
-                      <div className={styles.text_full}>{i.shorten_url}</div>
+                      <div className={styles.text_full}>{i.shortenUrl}</div>
                     </div>
                     <CreateCopyButton text={i.shorten_url} />
                   </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ILogo } from '../icon/Icon';
 import ATag from '../link/ATag';
+import Link from 'next/link';
 
 export default function ColorHead() {
   return (
@@ -9,9 +10,9 @@ export default function ColorHead() {
         <ILogo />
       </ATag>
       <div className="hidden shrink-0 flex-row gap-4 sm:flex">
-        <ATag href={'/signin'} isBlank={false}>
-          <div className="user  ">로그인 </div>
-        </ATag>
+        <Link href="/signin">
+          <div className="user">로그인 </div>
+        </Link>
         /
         <ATag href={'/signup'} isBlank={false}>
           <div className="sign shrink-0">회원가입</div>

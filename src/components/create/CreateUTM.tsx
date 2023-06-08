@@ -1,5 +1,12 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 
 import styles from './CreateUTM.module.css';
@@ -9,34 +16,39 @@ import Image from 'next/image';
 import { BlueButton } from '../common/blue_button/BlueButton';
 import { CreateCategory } from './CreateCategory';
 import Alert from '../common/blue_button/Alert';
-// import { getCookie } from "src/util/async/Cookie";
-import { redirect } from 'next/navigation';
-// import { useMutation } from "@tanstack/react-query";
-// import Loading from "@/src/common/modal/Loading";
 import { Tooltip } from '@mui/material';
-// import { createUTMs } from "@/src/service/create";
+import Loading from '../common/popup/Loading';
+import { POST_UTMS } from '@/services/async/creatUtm';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { setEnvironmentData } from 'worker_threads';
+import { PostUTMtype } from './CreatePage';
 export type UTMsType = {
-  utms: {
-    utm_url?: string;
-    utm_campaign_id?: string;
-    utm_source?: string;
-    utm_medium?: string;
-    utm_campaign_name?: string | null;
-    utm_content?: string | null;
-    utm_term?: string | null;
-    utm_memo?: string | null;
+  data: {
+    url?: string;
+    campaignId?: string;
+    source?: string;
+    medium?: string;
+    campaignName?: string | null;
+    content?: string | null;
+    term?: string | null;
+    memo?: string | null;
   }[];
 };
-type PropsType = {
-  setResUTM: any;
-  resUTM: any;
-};
-export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
+interface CreateBoxProps {
+  setutmData: Dispatch<SetStateAction<PostUTMtype[]>>;
+}
+export const CreateUTM = ({ setutmData }: CreateBoxProps) => {
   const [memoText, setMemoText] = useState('');
   const [alert, setAlert] = useState(false);
 
-  //   const { mutate, isLoading, data } = useMutation(postUTMs);
-  // const { mutate, isLoading, data } = useMutation(createUTMs);
+  // const { mutate, isLoading, data } = useUTMquery(POST_UTMS);
+
+  // const queryClient = useQueryClient();
+
+  const { mutate, isLoading, data } = useMutation({
+    mutationFn: POST_UTMS,
+  });
+
   const source = [
     'band',
     'daum',
@@ -65,8 +77,7 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
     ' socialmedia',
     ' sms',
   ];
-  // const res = data?.data;
-  // setResUTM(res);
+
   const {
     handleSubmit,
     register,
@@ -74,23 +85,23 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
     formState: { errors },
   } = useForm<UTMsType>({
     defaultValues: {
-      utms: [
+      data: [
         {
-          utm_url: '',
-          utm_campaign_id: '',
-          utm_source: '',
-          utm_medium: '',
-          utm_campaign_name: null,
-          utm_term: null,
-          utm_content: null,
-          utm_memo: null,
+          url: '',
+          campaignId: '',
+          source: '',
+          medium: '',
+          campaignName: null,
+          term: null,
+          content: null,
+          memo: null,
         },
       ],
     },
     mode: 'onBlur',
   });
   const { fields, append, remove } = useFieldArray({
-    name: 'utms',
+    name: 'data',
     control,
   });
   // const requeirFn = (e: any) => {
@@ -101,14 +112,14 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
   const addList = () => {
     if (fields.length <= 4) {
       append({
-        utm_url: '',
-        utm_campaign_id: '',
-        utm_source: '',
-        utm_medium: '',
-        utm_campaign_name: '',
-        utm_content: '',
-        utm_term: '',
-        utm_memo: '',
+        url: '',
+        campaignId: '',
+        source: '',
+        medium: '',
+        campaignName: '',
+        content: '',
+        term: '',
+        memo: '',
       });
     }
   };
@@ -116,15 +127,19 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
     const textareaValue = e.target?.value;
     setMemoText(textareaValue);
   };
-
   const onSubmit = async (data: UTMsType) => {
-    // try {
-    //   mutate(data);
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    try {
+      mutate(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
-  useEffect(() => {}, [memoText]);
+  useEffect(() => {
+    if (data !== undefined) {
+      setutmData(data?.data.data as PostUTMtype[]);
+    }
+  }, [data]);
+  // useEffect(() => {}, [memoText]);
 
   /**
    * 로그인 하지 않은 유저 로그인 페이지로 보내기
@@ -152,12 +167,12 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                         <input
                           placeholder="https://를 붙여서 입력해 주세요."
                           type="url"
-                          {...register(`utms.${index}.utm_url` as const, {
+                          {...register(`data.${index}.url` as const, {
                             required: true,
                             maxLength: 200,
                           })}
                           className={`${
-                            errors?.utms?.[index]?.utm_url
+                            errors?.data?.[index]?.url
                               ? styles.error
                               : styles.input_style
                           }`}
@@ -178,12 +193,12 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                         <input
                           list="source"
                           placeholder="ex) google, naver, facebook…"
-                          {...register(`utms.${index}.utm_source` as const, {
+                          {...register(`data.${index}.source` as const, {
                             required: true,
                             maxLength: 20,
                           })}
                           className={`${
-                            errors?.utms?.[index]?.utm_source
+                            errors?.data?.[index]?.source
                               ? styles.error
                               : styles.input_style
                           }`}
@@ -204,13 +219,13 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                         <input
                           list="medium"
                           placeholder="ex) email, display, cpc…"
-                          {...register(`utms.${index}.utm_medium` as const, {
+                          {...register(`data.${index}.medium` as const, {
                             required: true,
                             maxLength: 20,
                             // pattern: /[a-z]/i,
                           })}
                           className={`${
-                            errors?.utms?.[index]?.utm_medium
+                            errors?.data?.[index]?.medium
                               ? styles.error
                               : styles.input_style
                           }`}
@@ -223,15 +238,12 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                       >
                         <input
                           placeholder="ex) close_beta, open_beta, open…"
-                          {...register(
-                            `utms.${index}.utm_campaign_name` as const,
-                            {
-                              maxLength: 20,
-                              required: true,
-                            }
-                          )}
+                          {...register(`data.${index}.campaignName` as const, {
+                            maxLength: 20,
+                            required: true,
+                          })}
                           className={`${
-                            errors?.utms?.[index]?.utm_campaign_name
+                            errors?.data?.[index]?.campaignName
                               ? styles.error
                               : styles.input_style
                           }`}
@@ -245,17 +257,12 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                         <input
                           placeholder="ex) 20230312_UCB, 20230329_abc…"
                           // onInput={requeirFn}
-                          {...register(
-                            `utms.${index}.utm_campaign_id` as const,
-                            {
-                              // pattern: /[a-z]/i,
-                              maxLength: 20,
-                            }
-                          )}
+                          {...register(`data.${index}.campaignId` as const, {
+                            // pattern: /[a-z]/i,
+                            maxLength: 20,
+                          })}
                           className={`${
-                            errors?.utms?.[index]?.utm_campaign_id
-                              ? 'error'
-                              : ''
+                            errors?.data?.[index]?.campaignId ? 'error' : ''
                           }, ${styles.input_style}`}
                         />
                       </Tooltip>
@@ -267,13 +274,11 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                         <input
                           // onInput={requeirFn}
                           placeholder="ex) GA, UTM.."
-                          {...register(`utms.${index}.utm_term` as const, {
+                          {...register(`data.${index}.term` as const, {
                             maxLength: 20,
                           })}
                           className={`${
-                            errors?.utms?.[index]?.utm_campaign_id
-                              ? 'error'
-                              : ''
+                            errors?.data?.[index]?.term ? 'error' : ''
                           }, ${styles.input_style}`}
                         />
                       </Tooltip>
@@ -285,13 +290,11 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                         <input
                           // onInput={requeirFn}
                           placeholder="ex) 1st, 2nd…"
-                          {...register(`utms.${index}.utm_content` as const, {
+                          {...register(`data.${index}.content` as const, {
                             maxLength: 20,
                           })}
                           className={`${
-                            errors?.utms?.[index]?.utm_campaign_id
-                              ? 'error'
-                              : ''
+                            errors?.data?.[index]?.content ? 'error' : ''
                           }, ${styles.input_style}`}
                         />
                       </Tooltip>
@@ -303,7 +306,7 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                         <textarea
                           className={`${styles.active}`}
                           placeholder="ex) 캠페인 코멘트, 세션 수 등의 정보"
-                          {...register(`utms.${index}.utm_memo` as const, {
+                          {...register(`data.${index}.memo` as const, {
                             maxLength: 100,
                           })}
                           spellCheck={false}
@@ -354,7 +357,7 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                 console.log('추가버튼 이미지를 불러오지 못했습니다.');
               }}
             />
-          </button>
+          </button>{' '}
           <div className={styles.create_button_box_section}>
             {alert && (
               <Alert
@@ -363,8 +366,11 @@ export const CreateUTM: React.FC<PropsType> = ({ setResUTM }) => {
                 onClickEvent={setAlert}
               />
             )}
-            {/* {isLoading && <Loading isOpen={true} />} */}
-
+            {isLoading && (
+              <Loading>
+                <p>UTM 생성중...</p>
+              </Loading>
+            )}
             <BlueButton
               size={'sm'}
               color={'full'}

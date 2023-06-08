@@ -1,11 +1,10 @@
 import './globals.css';
 import localFont from 'next/font/local';
-import { Inter } from 'next/font/google';
-import ASide from '@/components/common/aside/ASide';
-import Header from '@/components/common/header/Header';
+import ASide from '../components/common/aside/ASide';
+import Header from '../components/common/header/Header';
 import { Metadata } from 'next';
-
-const inter = Inter({ subsets: ['latin'] });
+import QueryProviders from '../components/common/util/reactQuery/providers';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 export const metadata: Metadata = {
   title: 'UTM 카테고라이징 서비스 "유렉카"',
@@ -32,7 +31,10 @@ export default function RootLayout({
         <ASide />
         <div className="w-screen">
           <Header />
-          <main className="">{children}</main>
+          <QueryProviders>
+            <main className="">{children}</main>
+            <ReactQueryDevtools initialIsOpen={true} />
+          </QueryProviders>
         </div>
       </body>
     </html>

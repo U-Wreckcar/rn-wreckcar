@@ -1,10 +1,11 @@
+import { AxiosResponse } from 'axios';
 import instance from '../config/axiosInterseptor';
 import { POST_UTMS_API } from './api';
 import { Cookies } from 'react-cookie';
 
 const cookies = new Cookies();
 
-export const POST_UTMS = async (data: {}) => {
+export const POST_UTMS = async (data: {}): Promise<AxiosResponse> => {
   try {
     const response = await instance.post(POST_UTMS_API, data);
     const isSuccess = response.data.result.success;

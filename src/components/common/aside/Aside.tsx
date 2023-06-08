@@ -10,8 +10,11 @@ export default function Aside() {
   };
   return (
     <>
-      {folding && <Base slimHandle={slimHandle} />}
-      {folding || <Slim slimHandle={slimHandle} />}
+      {folding ? (
+        <Base slimHandle={slimHandle} />
+      ) : (
+        <Slim slimHandle={slimHandle} />
+      )}
     </>
   );
 }
