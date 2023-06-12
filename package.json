@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sv": "json-server ./public/data/data.json --port 4001"
+    "serve": "json-server ./public/data/data.json --port 4001"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
