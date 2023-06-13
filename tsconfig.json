@@ -18,10 +18,12 @@
       {
         "name": "next"
       }
-    ]
-    // "paths": {
-    //   "@/*": ["./src/*"]
-    // }
+    ],
+    //경로 주의
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
