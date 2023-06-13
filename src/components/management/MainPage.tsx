@@ -12,17 +12,18 @@ import plusImg from "public/assets/img/plus.png";
 import Image from "next/image";
 import MainTable from "./MainTable";
 import dynamic from "next/dynamic";
-import { getUTMs } from "@/services/async/utm";
+import { getUTMs } from "../../services/async/utm";
 import { MainTableType } from "./TableData";
+import { FC } from "react";
 
-import { EditModal } from "./MainMemoModal";
-import { OutputModal } from "./OutputModal";
-import { DeleteModal } from "./DeleteModal";
-import { AddUtmModal } from "./AddUtmModal";
-// const EditModal = dynamic(() => import("./MainMemoModal").then((mod) => mod.EditModal));
-// const OutputModal = dynamic(() => import("./OutputModal").then((mod) => mod.OutputModal));
-// const DeleteModal = dynamic(() => import("./DeleteModal").then((mod) => mod.DeleteModal));
-// const AddUtmModal = dynamic(() => import("./AddUtmModal").then((mod) => mod.AddUtmModal));
+// import { EditModal } from "./MainMemoModal";
+// import { OutputModal } from "./OutputModal";
+// import { DeleteModal } from "./DeleteModal";
+// import { AddUtmModal } from "./AddUtmModal";
+const EditModal= dynamic(() => import("./MainMemoModal").then((mod) => mod.EditModal) as Promise<React.ComponentType<any>>);
+const OutputModal = dynamic(() => import("./OutputModal").then((mod) => mod.OutputModal) as Promise<React.ComponentType<any>>);
+const DeleteModal = dynamic(() => import("./DeleteModal").then((mod) => mod.DeleteModal) as Promise<React.ComponentType<any>>);
+const AddUtmModal = dynamic(() => import("./AddUtmModal").then((mod) => mod.AddUtmModal) as Promise<React.ComponentType<any>>);
 
 export default function MainPageComponent() {
   const [output, setOutput] = useState(false);
