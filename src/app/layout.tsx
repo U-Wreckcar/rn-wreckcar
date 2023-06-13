@@ -1,11 +1,9 @@
 import './globals.css';
 import localFont from 'next/font/local';
-import { Inter } from 'next/font/google';
-import ASide from '../components/common/aside/Aside'
+import ASide from '../components/common/aside/Aside';
 import Header from '../components/common/header/Header';
 import { Metadata } from 'next';
-
-const inter = Inter({ subsets: ['latin'] });
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'UTM 카테고라이징 서비스 "유렉카"',
