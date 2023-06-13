@@ -1,5 +1,5 @@
 'use client';
-import ATag from '@/components/common/link/ATag';
+import ATag from '../../../components/common/link/ATag';
 import React, { useEffect, useState } from 'react';
 
 export default function Option() {

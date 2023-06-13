@@ -9,7 +9,7 @@ import Modal from "../common/ui/Modal";
 // import { useAppDispatch } from "@/src/util/reduxType/type";
 import { CustomStyles, MainTableType } from "./TableData";
 import { useEffect, useState } from "react";
-import { deleteUTM } from "@/services/async/utm";
+import { deleteUTM } from "../../services/async/utm";
 import { BlueButton } from "../common/blue_button/BlueButton";
 
 type OutputModalType = {
