@@ -4,7 +4,7 @@ import ATag from '../link/ATag';
 
 export default function ColorHead() {
   return (
-    <div className="bg-deepBlue flex h-[60px] w-screen items-center justify-between gap-10 px-[140px]  text-white">
+    <div className="bg-urc-blue-900 flex h-[60px] w-screen items-center justify-between gap-10 px-[140px]  text-white">
       <ATag href={'/'} isBlank={false}>
         <ILogo />
       </ATag>
