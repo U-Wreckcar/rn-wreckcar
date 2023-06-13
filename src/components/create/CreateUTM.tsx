@@ -22,6 +22,7 @@ import { POST_UTMS } from '@/services/async/creatUtm';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { setEnvironmentData } from 'worker_threads';
 import { PostUTMtype } from './CreatePage';
+import { CreateCopyBox } from './CreateCopyBox';
 export type UTMsType = {
   data: {
     url?: string;
@@ -35,20 +36,22 @@ export type UTMsType = {
   }[];
 };
 interface CreateBoxProps {
-  setutmData: Dispatch<SetStateAction<PostUTMtype[]>>;
+  setutmData?: Dispatch<SetStateAction<PostUTMtype[]>>;
 }
 export const CreateUTM = ({ setutmData }: CreateBoxProps) => {
   const [memoText, setMemoText] = useState('');
   const [alert, setAlert] = useState(false);
-
-  // const { mutate, isLoading, data } = useUTMquery(POST_UTMS);
-
-  // const queryClient = useQueryClient();
-
-  const { mutate, isLoading, data } = useMutation({
-    mutationFn: POST_UTMS,
+  const queryClient = useQueryClient();
+  const [sdata, setSdata] = useState();
+  const { mutate, isLoading, data } = useMutation(POST_UTMS, {
+    onSuccess: (data) => {
+      if (data) {
+        queryClient.setQueryData(['fullNshort'], data);
+        queryClient.invalidateQueries(['fullNshort']);
+      }
+    },
   });
-
+  // setSdata(data);
   const source = [
     'band',
     'daum',
@@ -134,11 +137,15 @@ export const CreateUTM = ({ setutmData }: CreateBoxProps) => {
       console.log(e);
     }
   };
-  useEffect(() => {
-    if (data !== undefined) {
-      setutmData(data?.data.data as PostUTMtype[]);
-    }
-  }, [data]);
+  /**
+   * CopyBox Data
+   */
+  // useEffect(() => {
+  //   if (data !== undefined) {
+  //     setutmData(data?.data.data as PostUTMtype[]);
+  //   }
+  // }, [data]);
+
   // useEffect(() => {}, [memoText]);
 
   /**
@@ -381,6 +388,7 @@ export const CreateUTM = ({ setutmData }: CreateBoxProps) => {
           </div>
         </div>
       </form>
+      <CreateCopyBox fullNsort={''} />
     </div>
   );
 };

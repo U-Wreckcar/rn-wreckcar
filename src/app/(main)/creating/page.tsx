@@ -1,5 +1,3 @@
-'use client';
-import React from 'react';
 import styles from './createutm.module.css';
 import CreatePage from '../../../components/create/CreatePage';
 export default function CreateUTMPage() {

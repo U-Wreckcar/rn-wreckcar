@@ -4,13 +4,13 @@ import Image from 'next/image';
 import b_close from '../../../public/assets/img/b_close.png';
 import check from '../../../public/assets/img/icons.png';
 import styles from './createCopyButton.module.css';
+import { useQuery } from '@tanstack/react-query';
 type PropsType = {
   text: string;
 };
 
 export const CreateCopyButton: React.FC<PropsType> = ({ text }) => {
   const [alert, setAlert] = useState(false);
-
   const onClickCopyBtn = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(() => {

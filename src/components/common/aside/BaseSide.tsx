@@ -13,6 +13,7 @@ import {
   Imanage,
 } from '../icon/Icon';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 // import { SlimProps } from './AsideType';
 export default function Base({ slimHandle }: SlimProps) {
   const pathName = usePathname();
@@ -36,11 +37,12 @@ export default function Base({ slimHandle }: SlimProps) {
       pb-5 pt-3 "
       >
         <div className="logo_slide mt-1 flex justify-between px-3">
-          <ATag href={'/'} isBlank={false}>
+          <Link href={'/management'}>
             <div className="logo ml-3 h-[70px]">
               <ILogo />
             </div>
-          </ATag>
+          </Link>
+
           <div onClick={slimHandle} className="mr-2 cursor-pointer">
             <ISlim fillColor={'white'} />
           </div>
@@ -60,7 +62,7 @@ export default function Base({ slimHandle }: SlimProps) {
             >
               내 UTM
             </p>
-            <ATag href={'/management'} isBlank={false}>
+            <Link href={'/management'}>
               <li
                 className={
                   'hover:bg-hblue flex flex-row  gap-2 rounded-[4px] p-2' +
@@ -72,8 +74,8 @@ export default function Base({ slimHandle }: SlimProps) {
                 <Imanage fillColor={'white'} />
                 UTM 관리하기
               </li>
-            </ATag>
-            <ATag href={'/creating'} isBlank={false}>
+            </Link>
+            <Link href={'/creating'}>
               <li
                 className={
                   'hover:bg-hblue flex flex-row gap-2 p-2 ' +
@@ -82,16 +84,16 @@ export default function Base({ slimHandle }: SlimProps) {
               >
                 <ICreate fillColor={'white'} />새 UTM 생성하기
               </li>
-            </ATag>
+            </Link>
 
-            <ATag href={'https://naver.com'} isBlank={false}>
+            <a href={'https://naver.com'} target="_blank">
               <li className="hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2 ">
                 <IAdd fillColor={'white'} />
                 기존 UTM 추가하기
               </li>
-            </ATag>
+            </a>
             <p className="mb-4 ml-3 mt-10 text-xl font-bold"> 워크 스페이스</p>
-            <ATag href={'/workspace/main'} isBlank={false}>
+            <a href={'/workspace/main'}>
               <li
                 className="
               hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2 "
@@ -99,7 +101,7 @@ export default function Base({ slimHandle }: SlimProps) {
                 <IMenu fillColor={'white'} />
                 워크 스페이스 관리하기
               </li>
-            </ATag>
+            </a>
 
             <li className="hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2 ">
               <ICreate fillColor={'white'} />새 워크 스페이스 생성하기
@@ -107,19 +109,19 @@ export default function Base({ slimHandle }: SlimProps) {
           </ul>
           <ul className="mb-20 flex flex-col gap-3 pb-12  ">
             <p className=" ml-3 text-xl font-extrabold">유렉카</p>
-            <ATag href={'https://utm.works'} isBlank={true}>
+            <a href={'https://utm.works'} target="_blank">
               <li className="hover:bg-hblue flex flex-row  gap-2 rounded-[4px] p-2">
                 <INoti bnw={'w'} w={24} h={24} />
                 공지사항
               </li>
-            </ATag>
+            </a>
 
-            <ATag href={'https://naver.com'} isBlank={true}>
+            <a href={'https://naver.com'} target="_blank">
               <li className="hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2">
                 <IGuide fillColor={'white'} />
                 가이드
               </li>
-            </ATag>
+            </a>
 
             <ATag href={'https://naver.com'} isBlank={true}>
               <li className="hover:bg-hblue flex flex-row  gap-2 rounded-[4px] p-2">

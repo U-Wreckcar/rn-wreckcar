@@ -1,11 +1,29 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styles from './CreateCopyBox.module.css';
 import b_link from '../../../public/assets/img/b_link.png';
 import Image from 'next/image';
 import { CreateCopyButton } from './CreateCopyButton';
 import { PostUTMtype } from './CreatePage';
-export const CreateCopyBox = ({ utmData }: { utmData: PostUTMtype[] }) => {
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { POST_UTMS } from '@/services/async/creatUtm';
+export const CreateCopyBox = ({ fullNshort }: any) => {
+  const queryClient = useQueryClient();
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ['fullNshort'],
+  //   queryFn: () => {},
+  //   // initialData: ' ',
+  // });
+
+  console.log(fullNshort);
+  // const { isLoading, data } = useMutation(['fullNshort']);
+  // console.log('로딩...', isLoading);
+  // console.log(data);
+  // @ts-ignore
+  // const response = data?.data?.data;
+  // console.log(response);
+
+  const response: [] = [];
   return (
     <div className={styles.container_copy_box}>
       <div className={styles.copy_title}>
@@ -20,7 +38,7 @@ export const CreateCopyBox = ({ utmData }: { utmData: PostUTMtype[] }) => {
       </div>
       <div>
         <div className={styles.list_container}>
-          {utmData?.map((i: any, idx: number) => (
+          {response?.map((i: any, idx: number) => (
             <div key={idx}>
               <div className={styles.list_box}>
                 <div className={styles.copy_box_number}>{idx + 1}</div>

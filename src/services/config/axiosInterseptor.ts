@@ -24,6 +24,7 @@ instance.interceptors.request.use(
     const refresh_token = cookies.get('refresh_token');
     if (refresh_token) {
       config.headers['X-Refresh-Token'] = `Bearer ${refresh_token}`;
+      // config.withCredentials = true;
     }
     return config;
   },
