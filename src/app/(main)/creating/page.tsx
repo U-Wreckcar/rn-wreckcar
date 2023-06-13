@@ -1,9 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { CreateUTM } from '@/components/create/CreateUTM';
 import styles from './createutm.module.css';
 import Image from 'next/image';
-import { CreateCopyBox } from '@/components/create/CreateCopyBox';
+import { CreateCopyBox } from '../../../components/create/CreateCopyBox';
+import { CreateUTM } from '../../../components/create/CreateUTM';
+
 
 export default function CreateUTMPage() {
   const [resUTM, setResUTM] = useState([]);

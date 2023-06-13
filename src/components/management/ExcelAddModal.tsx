@@ -10,7 +10,7 @@ import drag from "public/assets/img/e_drag.png";
 import dragBox from "public/assets/img/e_drag_box.png";
 import dragging from "public/assets/img/e_is_drag.png";
 import folder from "public/assets/img/e_icons.png";
-import instance from "@/services/config/axiosInterseptor";
+import instance from "../../services/config/axiosInterseptor";
 import Modal from "../common/ui/Modal";
 interface IFileTypes {
    id: number;

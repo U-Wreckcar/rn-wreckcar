@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Modal from "../common/ui/Modal";
 
 import { CustomStyles} from "./TableData";
-import { patchUTM } from "@/services/async/utm";
+import { patchUTM } from "../../services/async/utm";
 import { BlueButton } from "../common/blue_button/BlueButton";
 
 type EditModalType = {
