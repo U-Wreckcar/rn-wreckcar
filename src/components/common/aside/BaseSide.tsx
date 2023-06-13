@@ -32,7 +32,7 @@ export default function Base({ slimHandle }: SlimProps) {
     >
       <div
         className="
-      bg-blue fixed w-[270px] min-w-[270px] 
+      bg-urc-blue-primary-500 fixed w-[270px] min-w-[270px] 
       pb-5 pt-3 "
       >
         <div className="logo_slide mt-1 flex justify-between px-3">

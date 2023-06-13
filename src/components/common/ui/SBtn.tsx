@@ -21,7 +21,7 @@ export const SBtn: React.FC<BtnPropsType> = (props) => {
     <>
       <button
         className={
-          'bg-blue h-[38px] rounded-[4px] ' +
+          'bg-urc-blue-primary-500 h-[38px] rounded-[4px] ' +
           ((cusSize === 'sm' && ' w-[50px] ') ||
             (cusSize === 'md' && 'w-[81px]') ||
             (cusSize === 'lg' && ' w-[500px] ')) +
