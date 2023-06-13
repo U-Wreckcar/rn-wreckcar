@@ -20,10 +20,10 @@ import { FC } from "react";
 // import { OutputModal } from "./OutputModal";
 // import { DeleteModal } from "./DeleteModal";
 // import { AddUtmModal } from "./AddUtmModal";
-const EditModal= dynamic(() => import("./MainMemoModal").then((mod) => mod.EditModal) as Promise<React.ComponentType<any>>);
-const OutputModal = dynamic(() => import("./OutputModal").then((mod) => mod.OutputModal) as Promise<React.ComponentType<any>>);
-const DeleteModal = dynamic(() => import("./DeleteModal").then((mod) => mod.DeleteModal) as Promise<React.ComponentType<any>>);
-const AddUtmModal = dynamic(() => import("./AddUtmModal").then((mod) => mod.AddUtmModal) as Promise<React.ComponentType<any>>);
+// const EditModal= dynamic(() => import("./MainMemoModal").then((mod) => mod.EditModal) as Promise<React.ComponentType<any>>);
+// const OutputModal = dynamic(() => import("./OutputModal").then((mod) => mod.OutputModal) as Promise<React.ComponentType<any>>);
+// const DeleteModal = dynamic(() => import("./DeleteModal").then((mod) => mod.DeleteModal) as Promise<React.ComponentType<any>>);
+// const AddUtmModal = dynamic(() => import("./AddUtmModal").then((mod) => mod.AddUtmModal) as Promise<React.ComponentType<any>>);
 
 export default function MainPageComponent() {
   const [output, setOutput] = useState(false);
@@ -170,23 +170,23 @@ export default function MainPageComponent() {
             <button id="export_btn" className={styles.button} onClick={onClickPopBtn}>
               추출하기
             </button>
-            <OutputModal
+            {/* <OutputModal
               isOpen={output}
               onRequestClose={() => setOutput(false)}
               style={customStyles}
               dataList={select}
               tableData={tableData}
-            />
+            /> */}
             <button className={styles.button} onClick={onClickDelBtn}>
               삭제하기
             </button>
-            <DeleteModal
+            {/* <DeleteModal
               isOpen={del}
               onRequestClose={() => setDel(false)}
               style={customStyles}
               data={select}
               tableData={tableData}
-            />
+            /> */}
             <button
               className={styles.plus_button}
               title="button"
@@ -199,15 +199,15 @@ export default function MainPageComponent() {
             <button title="button" className={styles.plus_button} onClick={() => setPlus(true)}>
               <Image src={plusImg} alt="plus" width={24} height={24} />
             </button>
-            <AddUtmModal isOpen={plus} onRequestClose={() => setPlus(false)} style={customStyles} />
+            {/* <AddUtmModal isOpen={plus} onRequestClose={() => setPlus(false)} style={customStyles} /> */}
           </div>
-          <EditModal
+          {/* <EditModal
             isOpen={show}
             onRequestClose={() => setShow(false)}
             style={customStyles}
             value={value}
             index={target}
-          />
+          /> */}
         </div>
         <MainTable
           onChangeAllCheck={onChangeAllCheck}
