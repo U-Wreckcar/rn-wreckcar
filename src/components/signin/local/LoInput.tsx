@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Option from './LoOption';
-import { SBtn } from '@/components/common/ui/SBtn';
-import { SIGN_IN } from '@/services/async/user';
+import { SBtn } from '../../../components/common/ui/SBtn';
+import { SIGN_IN } from '../../../services/async/user';
 
 export default function Input() {
   const [email, setEmail] = useState('');

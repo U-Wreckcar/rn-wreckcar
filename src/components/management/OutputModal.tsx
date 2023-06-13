@@ -15,7 +15,7 @@ import { Alert, AlertTitle, CircularProgress } from "@mui/material";
 import Modal from "../common/ui/Modal";
 
 import { CustomStyles, MainTableType } from "./TableData";
-import instance from "@/services/config/axiosInterseptor";
+import instance from "../../services/config/axiosInterseptor";
 import { BlueButton } from "../common/blue_button/BlueButton";
 
 type OutputModalType = {
