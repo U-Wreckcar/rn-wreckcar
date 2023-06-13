@@ -3,7 +3,6 @@ export type MainTableType = {
   _id: number;
   createdAt: string;
   url: string;
-  // user_utm_source_id:any;
   campaignId: string;
   source: string;
   // user_utm_medium_id:any;

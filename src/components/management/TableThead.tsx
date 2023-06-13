@@ -26,3 +26,4 @@ export const TableThead = ({ select, tableData, onChangeAllCheck }: any) => {
     </tr>
   );
 };
+

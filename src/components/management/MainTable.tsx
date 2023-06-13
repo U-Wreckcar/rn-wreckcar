@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
 import styles from "./table.module.css";
-
 import { TableThead } from "./TableThead";
 import { MainFilter } from "./MainFilter";
 import { filterItems } from "./filterItems";

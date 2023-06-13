@@ -13,3 +13,4 @@ export function filterItems(items:any, query:any, name:string) {
       return items;
     }
   }
+  

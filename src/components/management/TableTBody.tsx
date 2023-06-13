@@ -12,3 +12,4 @@ export const TableTBody: FC<TBody> = ({ title }) => {
     </Tooltip>
   );
 };
+

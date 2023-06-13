@@ -5,7 +5,6 @@ import { TableTBody } from "./TableTBody";
 import styles from "./table.module.css";
 import Alert from "../common/blue_button/Alert";
 
-
 export const Tbody = ({ onCheck, tableData, onClickMemo, select }: any) => {
   const [alert, setAlert] = useState(false);
 
