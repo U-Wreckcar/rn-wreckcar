@@ -1,9 +1,10 @@
 import './globals.css';
 import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
-import ASide from '../components/common/aside/Aside'
+import ASide from '../components/common/aside/Aside';
 import Header from '../components/common/header/Header';
 import { Metadata } from 'next';
+import React from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
