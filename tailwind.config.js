@@ -1,5 +1,3 @@
-const { alertClasses } = require('@mui/material');
-
 /** @type {import('tailwindcss').Config} */
 const foundationColor = {
   'urc-blue-400': '#4C70FF',
