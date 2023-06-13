@@ -5,7 +5,6 @@ export type MainTableType = {
   url: string;
   campaignId: string;
   source: string;
-  // user_utm_medium_id:any;
   medium: string;
   campaignName: string;
   term: string;
