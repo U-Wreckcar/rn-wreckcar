@@ -1,5 +1,6 @@
 import HomeLayout from '../components/render/HomeLayout';
 import React from 'react';
+import { SBtn } from '@/components/common/ui/SBtn';
 
 export default function Home() {
   return (
