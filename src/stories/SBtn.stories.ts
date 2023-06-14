@@ -15,7 +15,7 @@ export const Primary: Story = {
   args: {
     primary: true,
     size: 'md',
-    children: 'children',
+    label: 'button',
     onClick: () => {
       console.log('log');
     },
@@ -26,15 +26,15 @@ export const Secondar: Story = {
   args: {
     primary: true,
     size: 'md',
-    children: 'secondar',
+    label: 'button',
   },
 };
 
 export const Large: Story = {
   args: {
-    primary: false,
+    primary: true,
     size: 'lg',
-    children: '로그인',
+    label: 'button',
   },
 };
 
@@ -42,6 +42,6 @@ export const Small: Story = {
   args: {
     primary: true,
     size: 'sm',
-    children: 'small',
+    label: 'button',
   },
 };
