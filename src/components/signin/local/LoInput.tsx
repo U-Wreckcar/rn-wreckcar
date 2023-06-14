@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Option from './LoOption';
 import { SBtn } from '../../../components/common/ui/SBtn';
 import { SIGN_IN } from '../../../services/async/user';
+import { useRouter } from 'next/navigation';
 
 export default function Input() {
   const [email, setEmail] = useState('');
@@ -10,12 +11,23 @@ export default function Input() {
   const [isPWVaild, setPWVaild] = useState(true);
   const [isEmailValid, setEmailVaild] = useState(true);
   const [check, setCheck] = useState<string>();
-
+  const router = useRouter();
+  /**
+   * Login Button
+   */
   const loginHandle = async () => {
     const loginData = { data: { email, password } };
-    // 전역으로 관리를 해서 재사용할지 아니면 다른 api로 요청할지 고민중
-    // const res = await SIGN_IN(loginData);
-    localStorage.setItem('uwreckcarLocalEmail', email);
+    const response = await SIGN_IN(loginData);
+    const isSuccess = response.data.result.success;
+    if (isSuccess === true) {
+      router.replace('/management');
+      localStorage.setItem('uwreckcarLocalEmail', email);
+    } else {
+      alert(
+        '서버와 연결이 어렵습니다. 인터넷 또는 와이파이를 확인하시고 이외 문제는 오픈카카오톡으로 문의를 주세요.'
+      );
+    }
+    return response;
   };
 
   const vaildEmail = (email: string): boolean => {
@@ -39,9 +51,6 @@ export default function Input() {
     setPassword(inPassword);
     setPWVaild(vaildPassword(inPassword));
   };
-  /**
-   * Login Button
-   */
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -93,7 +102,7 @@ export default function Input() {
         )}
       </div>
       <Option />
-      <SBtn size={'lg'} color={'blue'} onClick={loginHandle}>
+      <SBtn size={'lg'} primary={true} onClick={loginHandle}>
         로그인
       </SBtn>
     </div>

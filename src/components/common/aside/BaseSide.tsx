@@ -17,6 +17,9 @@ import { usePathname } from 'next/navigation';
 export default function Base({ slimHandle }: SlimProps) {
   const pathName = usePathname();
 
+  const listHover =
+    ' hover:bg-urc-blue-600  flex flex-row  gap-2 rounded-[4px] p-2';
+  const listActive = ' bg-urc-blue-600 rounded-[4px] p-2';
   return (
     <aside
       className={
@@ -63,10 +66,8 @@ export default function Base({ slimHandle }: SlimProps) {
             <ATag href={'/management'} isBlank={false}>
               <li
                 className={
-                  'hover:bg-hblue flex flex-row  gap-2 rounded-[4px] p-2' +
-                  (pathName == '/management'
-                    ? 'bg-orange rounded-[4px] p-2'
-                    : '')
+                  `${listHover}` +
+                  (pathName == '/management' ? `${listActive}` : '')
                 }
               >
                 <Imanage fillColor={'white'} />
@@ -76,8 +77,8 @@ export default function Base({ slimHandle }: SlimProps) {
             <ATag href={'/creating'} isBlank={false}>
               <li
                 className={
-                  'hover:bg-hblue flex flex-row gap-2 p-2 ' +
-                  (pathName == '/creating' ? 'bg-hblue rounded-[4px] p-2' : '')
+                  `${listHover}` +
+                  (pathName == '/creating' ? `${listActive}` : '')
                 }
               >
                 <ICreate fillColor={'white'} />새 UTM 생성하기
@@ -85,7 +86,7 @@ export default function Base({ slimHandle }: SlimProps) {
             </ATag>
 
             <ATag href={'https://naver.com'} isBlank={false}>
-              <li className="hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2 ">
+              <li className={`${listHover}`}>
                 <IAdd fillColor={'white'} />
                 기존 UTM 추가하기
               </li>
@@ -93,36 +94,38 @@ export default function Base({ slimHandle }: SlimProps) {
             <p className="mb-4 ml-3 mt-10 text-xl font-bold"> 워크 스페이스</p>
             <ATag href={'/workspace/main'} isBlank={false}>
               <li
-                className="
-              hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2 "
+                className={
+                  `${listHover}` +
+                  (pathName == `/workspace/main` ? `${listActive}` : '')
+                }
               >
                 <IMenu fillColor={'white'} />
                 워크 스페이스 관리하기
               </li>
             </ATag>
 
-            <li className="hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2 ">
+            <li className={`${listHover}`}>
               <ICreate fillColor={'white'} />새 워크 스페이스 생성하기
             </li>
           </ul>
           <ul className="mb-20 flex flex-col gap-3 pb-12  ">
             <p className=" ml-3 text-xl font-extrabold">유렉카</p>
             <ATag href={'https://utm.works'} isBlank={true}>
-              <li className="hover:bg-hblue flex flex-row  gap-2 rounded-[4px] p-2">
+              <li className={`${listHover}`}>
                 <INoti bnw={'w'} w={24} h={24} />
                 공지사항
               </li>
             </ATag>
 
             <ATag href={'https://naver.com'} isBlank={true}>
-              <li className="hover:bg-hblue flex flex-row gap-2 rounded-[4px] p-2">
+              <li className={`${listHover}`}>
                 <IGuide fillColor={'white'} />
                 가이드
               </li>
             </ATag>
 
             <ATag href={'https://naver.com'} isBlank={true}>
-              <li className="hover:bg-hblue flex flex-row  gap-2 rounded-[4px] p-2">
+              <li className={`${listHover}`}>
                 <IMore fillColor={'white'} />
                 문의하기
               </li>
