@@ -7,9 +7,18 @@ const cookies = new Cookies();
 export const GET_USER = async () => {
   try {
     const response = await instance.get(GET_USER_API);
-    return response.data.data;
+    const isSuccess = response.data.result.success;
+    const isToken = cookies.get('refresh_token');
+    if (isSuccess !== true) {
+      console.error(
+        `[GET_USER] Description: Object Empty isSuccess: ${isSuccess} 서버와 연결이 어렵습니다.`
+      );
+    } else if (isToken === 'undefined') {
+      console.error(`[GET_USER] Description: Object Empty Token: undefined`);
+    }
+    return response;
   } catch (error) {
-    throw new Error(`GET_USER: ${error} Error line: 7`);
+    throw new Error(`[GET_USER]: Description: ${error}`);
   }
 };
 
