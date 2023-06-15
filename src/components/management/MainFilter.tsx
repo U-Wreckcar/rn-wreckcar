@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import styles from "./table.module.css";
+import styles from "./main.module.css";
 import blackFilterImg from "public/assets/img/b_filter.png";
 import Image from "next/image";
 

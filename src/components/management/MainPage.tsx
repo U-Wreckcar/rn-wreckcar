@@ -114,7 +114,7 @@ export default function MainPageComponent() {
     } else if (select.length !== 0) {
       setTitle(`${select?.length}개의 UTM이 선택됐어요!`);
     }
-  }, [select.length]);
+  }, [select.length, tableData.length]);
 
   //체크박스 전체 선택
   const onChangeAllCheck = (checked: any) => {

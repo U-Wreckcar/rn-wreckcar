@@ -98,14 +98,12 @@
     padding: 8px;
   }
   .no_data_item {
-    position: relative;
-    top: -180px;
-    left: -180px;
+    position: absolute;
+
   }
   .slim_no_data_item {
-    position: relative;
-    top: -180px;
-    left: -180px;
+    position: absolute;
+
   }
   
   
