@@ -26,7 +26,7 @@ export const SIGN_IN = async (data: object) => {
   try {
     const response = await instance.post(POST_SIGN_IN_API, data);
     const isSuccess = response.data.result.success;
-    const token = response.data.token;
+    const token = response.data.data.token;
     if (isSuccess === true) {
       cookies.set('refresh_token', token, {
         path: '/',

@@ -14,7 +14,6 @@ import MainTable from "./MainTable";
 import dynamic from "next/dynamic";
 import { getUTMs } from "../../services/async/utm";
 import { MainTableType } from "./TableData";
-import { FC } from "react";
 
 // import { EditModal } from "./MainMemoModal";
 // import { OutputModal } from "./OutputModal";
@@ -41,18 +40,6 @@ export default function MainPageComponent() {
 
   const [tableData, setTableData] = useState<MainTableType[]>([]);
 
-  const customStyles = {
-    content: {
-      top: "55%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      padding: 0,
-    },
-  };
-
   /** Get 요청 */
   const getData = async () => {
     try {
@@ -71,16 +58,6 @@ export default function MainPageComponent() {
       setSelect(select.filter((el: any) => el !== e.target.id));
     }
   };
-
-  //쿠키 확인
-  // useEffect(() => {
-  //   const cookie = getCookie("refresh_token");
-  //   if (!cookie) {
-  //     removeCookie("refresh_token");
-  //     removeCookie("access_token");
-  //     router.push("/login");
-  //   }
-  // }, []);
 
   //삭제하기
   const onClickDelBtn = () => {
