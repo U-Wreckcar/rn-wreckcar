@@ -8,9 +8,9 @@ import Alert from "../common/blue_button/Alert";
 export const Tbody = ({ onCheck, tableData, onClickMemo, select }: any) => {
   const [alert, setAlert] = useState(false);
 
-  useEffect(() => {
-    console.log(tableData.length);
-  }, [tableData]);
+  // useEffect(() => {
+  //   console.log(tableData.length);
+  // }, [tableData]);
 
   const onClickCopyBtn = (text: string) => {
     if (navigator.clipboard) {
@@ -23,18 +23,19 @@ export const Tbody = ({ onCheck, tableData, onClickMemo, select }: any) => {
   return (
     <tbody>
       {alert && <Alert title={"성공"} contents={"UTM이 복사되었습니다!"} onClickEvent={setAlert} />}
-
       {tableData.length === 0 && (
-        <td style={{ overflow: "inherit" }}>
+    <tr style={{ overflow: "inherit" }}>
+        <td>
           <div className={styles.no_data}>
             <div className={styles.no_data_item}>
               <p>등록된 UTM이 없어요.</p>
-              <Link href={"/createutm"}>
+              <Link href={"/creating"}>
                 <button>UTM 생성하기</button>
               </Link>
             </div>
           </div>
         </td>
+        </tr>
       )}
       {tableData?.map((table: any, i: number) => (
         <tr key={i}>
