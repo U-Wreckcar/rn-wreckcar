@@ -4,7 +4,7 @@ import styles from './createutm.module.css';
 import Image from 'next/image';
 import { CreateCopyBox } from '../../../components/create/CreateCopyBox';
 import { CreateUTM } from '../../../components/create/CreateUTM';
-
+import NCBtn from '@/components/common/copy_button/NCBtn';
 
 export default function CreateUTMPage() {
   const [resUTM, setResUTM] = useState([]);
@@ -45,6 +45,9 @@ export default function CreateUTMPage() {
               확인하실 수 있습니다.
             </p>
           </div>
+          <NCBtn copyData="copy success" isPrimary={false}>
+            copy
+          </NCBtn>
           <CreateCopyBox resUTM={resUTM} />
         </div>
       )}

@@ -1,4 +1,4 @@
-import instance from '../config/axiosInterseptor';
+import instance from '../config/axiosInterceptor';
 import { GET_USER_API, POST_SIGN_IN_API } from './api';
 import { Cookies } from 'react-cookie';
 
