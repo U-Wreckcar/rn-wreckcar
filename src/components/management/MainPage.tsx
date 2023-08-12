@@ -7,14 +7,13 @@ import { Alert, AlertTitle } from '@mui/material';
 import styles from './main.module.css';
 import BtnAlert from '../../components/common/blue_button/Alert';
 
-
-import filterImg from "public/assets/img/filter.png";
-import plusImg from "public/assets/img/plus.png";
-import Image from "next/image";
-import MainTable from "./MainTable";
-import dynamic from "next/dynamic";
-import { getUTMs } from "../../services/async/utm";
-import { MainTableType } from "./TableData";
+import filterImg from 'public/assets/img/filter.png';
+import plusImg from 'public/assets/img/plus.png';
+import Image from 'next/image';
+import MainTable from './MainTable';
+import dynamic from 'next/dynamic';
+import { getUTMs } from '../../services/async/utm';
+import { MainTableType } from './TableData';
 
 // import { EditModal } from "./MainMemoModal";
 // import { OutputModal } from "./OutputModal";
@@ -41,7 +40,6 @@ export default function MainPageComponent() {
 
   const [tableData, setTableData] = useState<MainTableType[]>([]);
 
-<<<<<<< HEAD
   const customStyles = {
     content: {
       top: '55%',
@@ -54,8 +52,6 @@ export default function MainPageComponent() {
     },
   };
 
-=======
->>>>>>> main
   /** Get 요청 */
   const getData = async () => {
     try {
