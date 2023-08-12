@@ -1,9 +1,3 @@
-/**
- * Styles
- */
-import styles from './CreateCategory.module.css';
-import Image from 'next/image';
-
 export const CreateCategory = () => {
   const category = [
     'URL 입력 *',
@@ -17,14 +11,14 @@ export const CreateCategory = () => {
   ];
 
   return (
-    <div className={styles.container_category}>
-      <div className={styles.create_img_box}></div>
-      <div className={styles.utm_name}>
+    <div className="bg-gray-light mb-[8px] mt-[20px] flex h-[40px] min-w-[1590px] items-center rounded-[4px]">
+      <div className="flex h-[40px] w-[62px] content-center items-center "></div>
+      <div className="flex w-[1590px] gap-2">
         {category.map((i, idx) => {
           return (
             <div key={idx}>
-              <div className={styles.item}>
-                <h3 className={styles.category_text}>{i}</h3>
+              <div className=" min-w-[168px] content-between">
+                <h3 className="text-[0.7rem]">{i}</h3>
               </div>
             </div>
           );

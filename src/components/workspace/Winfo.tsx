@@ -46,12 +46,8 @@ export default function Winfo() {
         flex gap-2
         "
         >
-          <SBtn onClick={editHandle} size={'md'} color={'blue'}>
-            정보 수정
-          </SBtn>
-          <SBtn onClick={editHandle} size={'md'} color={'blue'}>
-            멤버 추가
-          </SBtn>
+          <SBtn onClick={editHandle} size={'md'} label={'정보 추가'} />
+          <SBtn onClick={editHandle} size={'md'} label={'멤버 추가'} />
         </div>
       </div>
       <div
