@@ -32,7 +32,6 @@ export const SBtn: React.FC<BtnPropsType> = (props) => {
         className={`${baseStyle} ${propsSize} ${isPrimary}`}
         onClick={onClick}
         disabled={false}
-        value={label}
       >
         {label}
       </button>
