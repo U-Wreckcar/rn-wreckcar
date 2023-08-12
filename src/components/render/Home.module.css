@@ -17,8 +17,8 @@
 * Section One 
 */
 .l_section_one {
-  background-image: url('../../../public/assets/render/bg-one.png');
-  background-size: 100vw 100%;
+  background-image: url('../../../public/assets/render/bg-one.webp');
+  background-size: cover;
   background-position: center;
   /* background-repeat: no-repeat; */
   height: 1000px;
@@ -537,7 +537,7 @@
     height: 600px;
   }
   .l_section_one {
-    background-image: url('../../../public/assets/render/bg-one.png');
+    background-image: url('../../../public/assets/render/bg-one.webp');
     background-size: 100vw 100%;
     background-position: center;
     /* background-repeat: no-repeat; */
