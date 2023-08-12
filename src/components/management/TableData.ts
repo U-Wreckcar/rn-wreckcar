@@ -1,4 +1,3 @@
-
 export type MainTableType = {
   _id: number;
   createdAt: string;
