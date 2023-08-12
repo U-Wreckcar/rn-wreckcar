@@ -1,130 +1,134 @@
 .background {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #0A0D54;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0a0d54;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.container{
-    background-color: #fff;
-    width: 800px;
-    height: 670px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+  background-color: #fff;
+  width: 800px;
+  height: 670px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container input:focus {
-    outline: none;
+  outline: none;
 }
 
 .container label {
-    display: block;
+  display: block;
 }
 
-
-.header{
-    text-align: center;
+.header {
+  text-align: center;
 }
 
 .header > h2 {
-    margin-top: 64px;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 38px;
+  margin-top: 64px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 38px;
 }
 
 .header > p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .wrap {
-    margin-top: 28px;
+  margin-top: 28px;
 }
 
 .wrap > label {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
 }
 
 .wrap > input {
-    height: 38px;
-    border:1px solid #e1e1e1;
-    border-radius: 4px;
-    /* padding-left: 8px; */
-    margin-top: 12px;
+  height: 38px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  /* padding-left: 8px; */
+  margin-top: 12px;
 }
 
-.email_input{
-    width: 385px;
+.email_input {
+  width: 385px;
 }
-.signup_input{
-    width: 478px;
+.signup_input {
+  width: 478px;
 }
 
 .wrap > button {
-    background-color: #484BFF;
-    width: 81px;
-    height: 38px;
-    color: #fff;
-    border-radius: 4px;
-    margin-left: 12px;
-    font-size: 0.7rem;
+  background-color: #484bff;
+  width: 81px;
+  height: 38px;
+  color: #fff;
+  border-radius: 4px;
+  margin-left: 12px;
+  font-size: 0.7rem;
 }
-.wrap > button:hover{
-    background:#4C70FF;
+.wrap > button:hover {
+  background: #4c70ff;
 }
 .form > p {
-    color: #F13400;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    margin-bottom: -20px;
+  color: #f13400;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: -20px;
 }
 
 .form > span {
-    color: #0A0D54;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
+  color: #0a0d54;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
 }
 
-.button_box{
-    width: 500px;
-    margin: 31px auto;
-    display: flex;
-    justify-content: space-between;
+.button_box {
+  width: 500px;
+  margin: 31px auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .button_box > button {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 22px;
-    height: 46px;
-    color: #fff;
-    border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  height: 46px;
+  color: #fff;
+  border-radius: 4px;
 }
 
-.cancel_button{
-    width: 100px;
-    background-color: #e1e1e1;
+.cancel_button {
+  width: 100px;
+  background-color: #e1e1e1;
 }
 
-.find_button{
-    width: 392px;
-    background-color: #484BFF;
+.find_button {
+  width: 392px;
+  background-color: #484bff;
 }
 
-.cancel_button:hover{
-    background:linear-gradient(180deg, rgba(225,225,225,0.8333333333333334) 0%, rgba(225,225,225,0.9110169491525424) 25%, rgba(225,225,225,1) 100%);
+.cancel_button:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(225, 225, 225, 0.8333333333333334) 0%,
+    rgba(225, 225, 225, 0.9110169491525424) 25%,
+    rgba(225, 225, 225, 1) 100%
+  );
 }
 
-.find_button:hover{
-    background:#4C70FF;
+.find_button:hover {
+  background: #4c70ff;
 }

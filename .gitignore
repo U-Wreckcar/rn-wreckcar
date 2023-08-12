@@ -3,9 +3,11 @@
 /node_modules
 /.pnp
 .pnp.js
+.eslintcashe
 .yarn
 .yarnrc.yml
 yarn.lock
+.eslintcache
 # testing
 /coverage
 

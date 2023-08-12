@@ -51,20 +51,13 @@
       "memo": "memo_text"
     }
   ],
-   "workInfo": 
-    {
-      "id": 1,
-      "name": "2023년 3월 유렉카 설문조사 이벤트",
-      "creator": "유렐카",
-      "createAt": "2023.04.29",
-      "member": [
-        "철수",
-        "max",
-        "nori"
-      ],
-      "campaign_create": "campaign_id",
-      "memo": "term_text"
-    }
-    
-  
+  "workInfo": {
+    "id": 1,
+    "name": "2023년 3월 유렉카 설문조사 이벤트",
+    "creator": "유렐카",
+    "createAt": "2023.04.29",
+    "member": ["철수", "max", "nori"],
+    "campaign_create": "campaign_id",
+    "memo": "term_text"
+  }
 }

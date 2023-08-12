@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 // import { getCookie, removeCookie } from "src/util/async/Cookie";
-import { Alert, AlertTitle } from "@mui/material";
-import styles from "./main.module.css";
-import BtnAlert from "../../components/common/blue_button/Alert";
+import { Alert, AlertTitle } from '@mui/material';
+import styles from './main.module.css';
+import BtnAlert from '../../components/common/blue_button/Alert';
 
-import filterImg from "public/assets/img/filter.png";
-import plusImg from "public/assets/img/plus.png";
-import Image from "next/image";
-import MainTable from "./MainTable";
-import dynamic from "next/dynamic";
-import { getUTMs } from "../../services/async/utm";
-import { MainTableType } from "./TableData";
+import filterImg from 'public/assets/img/filter.png';
+import plusImg from 'public/assets/img/plus.png';
+import Image from 'next/image';
+import MainTable from './MainTable';
+import dynamic from 'next/dynamic';
+import { getUTMs } from '../../services/async/utm';
+import { MainTableType } from './TableData';
 
 // import { EditModal } from "./MainMemoModal";
 // import { OutputModal } from "./OutputModal";
@@ -30,15 +30,27 @@ export default function MainPageComponent() {
   const [alert, setAlert] = useState(false);
   const [filter, setFilter] = useState(false);
   const [warningAlert, setWarningAlert] = useState(false);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [del, setDel] = useState(false);
   const [select, setSelect] = useState<any>([]);
   const router = useRouter();
   const [show, setShow] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [target, setTarget] = useState(0);
 
   const [tableData, setTableData] = useState<MainTableType[]>([]);
+
+  const customStyles = {
+    content: {
+      top: '55%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: 0,
+    },
+  };
 
   /** Get 요청 */
   const getData = async () => {
@@ -46,7 +58,7 @@ export default function MainPageComponent() {
       const res: any = await getUTMs();
       setTableData(res.data.data);
     } catch (err) {
-      router.replace("/");
+      router.replace('/');
     }
   };
 
@@ -136,7 +148,13 @@ export default function MainPageComponent() {
           <strong>데이터를 체크해주세요!</strong>
         </Alert>
       )}
-      {alert && <BtnAlert title={"성공"} contents={"UTM이 복사되었습니다!"} onClickEvent={setAlert} />}
+      {alert && (
+        <BtnAlert
+          title={'성공'}
+          contents={'UTM이 복사되었습니다!'}
+          onClickEvent={setAlert}
+        />
+      )}
       <div className={styles.container}>
         <div className={styles.btn_box}>
           <div className={styles.title_box_d}>
@@ -144,7 +162,11 @@ export default function MainPageComponent() {
             <h4>{title}</h4>
           </div>
           <div className={styles.buttons_box}>
-            <button id="export_btn" className={styles.button} onClick={onClickPopBtn}>
+            <button
+              id="export_btn"
+              className={styles.button}
+              onClick={onClickPopBtn}
+            >
               추출하기
             </button>
             {/* <OutputModal
@@ -173,7 +195,11 @@ export default function MainPageComponent() {
             >
               <Image src={filterImg} alt="filter" width={24} height={24} />
             </button>
-            <button title="button" className={styles.plus_button} onClick={() => setPlus(true)}>
+            <button
+              title="button"
+              className={styles.plus_button}
+              onClick={() => setPlus(true)}
+            >
               <Image src={plusImg} alt="plus" width={24} height={24} />
             </button>
             {/* <AddUtmModal isOpen={plus} onRequestClose={() => setPlus(false)} style={customStyles} /> */}

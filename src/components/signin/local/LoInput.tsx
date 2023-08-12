@@ -102,9 +102,7 @@ export default function Input() {
         )}
       </div>
       <Option />
-      <SBtn size={'lg'} primary={true} onClick={loginHandle}>
-        로그인
-      </SBtn>
+      <SBtn size={'lg'} label={'로그인'} onClick={loginHandle} />
     </div>
   );
 }

@@ -1,9 +1,9 @@
-import { Tooltip } from "@mui/material";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { TableTBody } from "./TableTBody";
-import styles from "./table.module.css";
-import Alert from "../common/blue_button/Alert";
+import { Tooltip } from '@mui/material';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { TableTBody } from './TableTBody';
+import styles from './table.module.css';
+import Alert from '../common/blue_button/Alert';
 
 export const Tbody = ({ onCheck, tableData, onClickMemo, select }: any) => {
   const [alert, setAlert] = useState(false);
@@ -22,19 +22,25 @@ export const Tbody = ({ onCheck, tableData, onClickMemo, select }: any) => {
 
   return (
     <tbody>
-      {alert && <Alert title={"성공"} contents={"UTM이 복사되었습니다!"} onClickEvent={setAlert} />}
+      {alert && (
+        <Alert
+          title={'성공'}
+          contents={'UTM이 복사되었습니다!'}
+          onClickEvent={setAlert}
+        />
+      )}
       {tableData.length === 0 && (
-    <tr style={{ overflow: "inherit" }}>
-        <td>
-          <div className={styles.no_data}>
-            <div className={styles.no_data_item}>
-              <p>등록된 UTM이 없어요.</p>
-              <Link href={"/creating"}>
-                <button>UTM 생성하기</button>
-              </Link>
+        <tr style={{ overflow: 'inherit' }}>
+          <td>
+            <div className={styles.no_data}>
+              <div className={styles.no_data_item}>
+                <p>등록된 UTM이 없어요.</p>
+                <Link href={'/creating'}>
+                  <button>UTM 생성하기</button>
+                </Link>
+              </div>
             </div>
-          </div>
-        </td>
+          </td>
         </tr>
       )}
       {tableData?.map((table: any, i: number) => (
@@ -55,17 +61,22 @@ export const Tbody = ({ onCheck, tableData, onClickMemo, select }: any) => {
           <TableTBody title={table.campaignName} />
           <TableTBody title={table.term} />
           <TableTBody title={table.content} />
-          <Tooltip title={"클릭시 메모 수정가능합니다."}>
+          <Tooltip title={'클릭시 메모 수정가능합니다.'}>
             <td>
-              <input placeholder={table.memo} id={table.utm_id} onClick={onClickMemo} data-id={table.memo}></input>
+              <input
+                placeholder={table.memo}
+                id={table.utm_id}
+                onClick={onClickMemo}
+                data-id={table.memo}
+              ></input>
             </td>
           </Tooltip>
-          <Tooltip title={"클릭시 복사 가능합니다."}>
+          <Tooltip title={'클릭시 복사 가능합니다.'}>
             <td onClick={() => onClickCopyBtn(table.fullUrl)}>
               <>{table.fullUrl}</>
             </td>
           </Tooltip>
-          <Tooltip title={"클릭시 복사 가능합니다."}>
+          <Tooltip title={'클릭시 복사 가능합니다.'}>
             <td onClick={() => onClickCopyBtn(table.shortenUrl)}>
               <>{table.shortenUrl}</>
             </td>

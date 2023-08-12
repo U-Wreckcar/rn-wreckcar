@@ -1,6 +1,10 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended"
-  ]
+  "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
+  "rules": {
+    "no-var": "error", // var 금지
+    "no-multiple-empty-lines": "error", // 여러 줄 공백 금지
+    // "no-console": ["error", { "allow": ["warn", "error", "info"] }], // console.log() 금지
+    "no-case-declarations": "warn",
+    "no-unused-vars": "warn" // 사용하지 않는 변수 금지
+  }
 }

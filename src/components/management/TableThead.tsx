@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./table.module.css";
+import React from 'react';
+import styles from './table.module.css';
 
 export const TableThead = ({ select, tableData, onChangeAllCheck }: any) => {
   return (
@@ -26,4 +26,3 @@ export const TableThead = ({ select, tableData, onChangeAllCheck }: any) => {
     </tr>
   );
 };
-
