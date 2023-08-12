@@ -7,14 +7,14 @@ import { Alert, AlertTitle } from '@mui/material';
 import styles from './main.module.css';
 import BtnAlert from '../../components/common/blue_button/Alert';
 
-import filterImg from 'public/assets/img/filter.png';
-import plusImg from 'public/assets/img/plus.png';
-import Image from 'next/image';
-import MainTable from './MainTable';
-import dynamic from 'next/dynamic';
-import { getUTMs } from '../../services/async/utm';
-import { MainTableType } from './TableData';
-import { FC } from 'react';
+
+import filterImg from "public/assets/img/filter.png";
+import plusImg from "public/assets/img/plus.png";
+import Image from "next/image";
+import MainTable from "./MainTable";
+import dynamic from "next/dynamic";
+import { getUTMs } from "../../services/async/utm";
+import { MainTableType } from "./TableData";
 
 // import { EditModal } from "./MainMemoModal";
 // import { OutputModal } from "./OutputModal";
@@ -41,6 +41,7 @@ export default function MainPageComponent() {
 
   const [tableData, setTableData] = useState<MainTableType[]>([]);
 
+<<<<<<< HEAD
   const customStyles = {
     content: {
       top: '55%',
@@ -53,6 +54,8 @@ export default function MainPageComponent() {
     },
   };
 
+=======
+>>>>>>> main
   /** Get 요청 */
   const getData = async () => {
     try {
@@ -71,16 +74,6 @@ export default function MainPageComponent() {
       setSelect(select.filter((el: any) => el !== e.target.id));
     }
   };
-
-  //쿠키 확인
-  // useEffect(() => {
-  //   const cookie = getCookie("refresh_token");
-  //   if (!cookie) {
-  //     removeCookie("refresh_token");
-  //     removeCookie("access_token");
-  //     router.push("/login");
-  //   }
-  // }, []);
 
   //삭제하기
   const onClickDelBtn = () => {
@@ -137,7 +130,7 @@ export default function MainPageComponent() {
     } else if (select.length !== 0) {
       setTitle(`${select?.length}개의 UTM이 선택됐어요!`);
     }
-  }, [select.length]);
+  }, [select.length, tableData.length]);
 
   //체크박스 전체 선택
   const onChangeAllCheck = (checked: any) => {
